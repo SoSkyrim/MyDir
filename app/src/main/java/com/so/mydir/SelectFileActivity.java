@@ -19,6 +19,8 @@ import java.util.Stack;
 
 /**
  * Created by so on 2017/12/29.
+ * <p>
+ * select a file and return its dir and file path
  */
 
 public class SelectFileActivity extends AppCompatActivity {
@@ -83,17 +85,23 @@ public class SelectFileActivity extends AppCompatActivity {
         refillFileData(getCurPathString());
     }
 
-    class FileItemClickListener implements AdapterView.OnItemClickListener {
+    private class FileItemClickListener implements AdapterView.OnItemClickListener {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             File file = mListFiles[position];
             if (file.isFile()) {
-                //是文件, 获取绝对路径并返回
-                String path = file.getAbsolutePath().toString();
+                //是文件, 获取文件所在目录和自身的绝对路径
+                String path = file.getAbsolutePath();
+
+                ArrayList<String> dirAndFile = new ArrayList<>();
+                dirAndFile.add(getCurPathString());
+                dirAndFile.add(path);
+
                 Intent intent = new Intent();
-                intent.putExtra("path", path);
+                intent.putStringArrayListExtra("dirAndFile", dirAndFile);
                 setResult(1, intent);
+
                 finish();
             } else {
                 //是文件夹
@@ -154,7 +162,7 @@ public class SelectFileActivity extends AppCompatActivity {
             ifSearching = false;
             refillFileData(getCurPathString());
         } else {
-            if (mCurrPathStack.peek() == mRootPath) {
+            if ((mCurrPathStack.peek()).equals(mRootPath)) {
                 //1.已经到达根目录
                 //2.两秒内连续点击则退出
                 long currentTime = System.currentTimeMillis();
