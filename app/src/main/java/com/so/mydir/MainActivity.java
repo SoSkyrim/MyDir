@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.so.mydir.activity.SelectFileActivity;
+
 import java.util.ArrayList;
 
 import static com.so.mydir.utils.PermissionsUtil.verifyStoragePermissions;
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
             mFileDir = dirAndFile.get(0);
             mFilePath = dirAndFile.get(1);
+
+            et_input_path.setText(mFilePath);
 //            //确认返回的内容
 //            StringBuffer buffer = new StringBuffer();
 //            for (int i = 0; i < dirAndFile.size(); i++) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">找寻文件</string>
-    <string name="et_input_path_hin">请输入文件路径:</string>
-    <string name="bt_select_text">Select</string>
+    <string name="app_name">选择文件</string>
+    <string name="et_input_path">请输入文件路径:</string>
+    <string name="bt_select">选择</string>
 </resources>

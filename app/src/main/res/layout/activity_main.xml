@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="@string/et_input_path_hin" />
+        android:hint="@string/et_input_path" />
 
     <Button
         android:id="@+id/bt_select"
@@ -22,5 +22,5 @@
         android:layout_marginStart="8dp"
         android:layout_weight="3"
         android:onClick="SelectFile"
-        android:text="@string/bt_select_text" />
+        android:text="@string/bt_select" />
 </LinearLayout>
